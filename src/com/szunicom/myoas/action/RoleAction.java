@@ -42,6 +42,9 @@ public class RoleAction extends ActionSupport implements ModelDriven<Role>{
 		return "toList";
 	}
 	public String addUI(){
+		model.setId(null);
+		model.setName("");
+		model.setDescription("");
 		return "saveUI";
 	}
 	public String editUI(){
