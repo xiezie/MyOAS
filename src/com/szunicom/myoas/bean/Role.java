@@ -1,10 +1,13 @@
 package com.szunicom.myoas.bean;
 
+import java.util.Set;
+
 public class Role {
 
 	private Long id;
 	private String name;
 	private String description;
+	private Set<User> users;
 	
 	public Long getId() {
 		return id;
@@ -23,6 +26,12 @@ public class Role {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	public Set<User> getUsers() {
+		return users;
+	}
+	public void setUsers(Set<User> users) {
+		this.users = users;
 	}
 	
 }
