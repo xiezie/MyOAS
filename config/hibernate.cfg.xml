@@ -21,6 +21,6 @@
         <!-- 映射文件 -->
         <mapping resource="com/szunicom/myoas/bean/User.hbm.xml"/>
         <mapping resource="com/szunicom/myoas/bean/Role.hbm.xml"/>
-        <mapping resource="com/szunicom/myoas/ebean/dDeparymn.hbm.xml"/>
+        <mapping resource="com/szunicom/myoas/bean/Department.hbm.xml"/>
 	</session-factory>
 </hibernate-configuration>
