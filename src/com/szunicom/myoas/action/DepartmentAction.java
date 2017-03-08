@@ -19,18 +19,30 @@ public class DepartmentAction extends ActionSupport implements ModelDriven<Depar
 
 	@Resource
 	private DepartmentService service;
+	private Long parentId;
 	private Department model = new Department();
 	
 	public String list(){
-		List<Department> departments = service.findAll();
+		List<Department> departments = null;
+		if(parentId==null){
+			departments = service.findTopList();
+		}else{
+			departments = service.findChildren(parentId);
+			Department parent = service.getById(parentId);
+			ActionContext.getContext().put("parent", parent);
+		}
 		ActionContext.getContext().put("departments", departments);
 		return "list";
 	}
 	public String add(){
+		Department department = service.getById(parentId);
+		model.setParent(department);
 		service.add(model);
 		return "toList";
 	}
 	public String edit(){
+		Department department = service.getById(parentId);
+		model.setParent(department);
 		service.edit(model);
 		return "toList";
 	}
@@ -42,16 +54,32 @@ public class DepartmentAction extends ActionSupport implements ModelDriven<Depar
 		model.setId(null);
 		model.setName("");
 		model.setDescription("");
+		List<Department> departments = service.findAll();
+		ActionContext.getContext().put("departments", departments);
 		return "saveUI";
 	}
 	public String editUI(){
+		List<Department> departments = service.findAll();
+		ActionContext.getContext().put("departments", departments);
+		
 		Department d = service.getById(model.getId());
+		if(d.getParent()!=null){
+			parentId = d.getParent().getId();
+		}
+		
 		ActionContext.getContext().getValueStack().push(d);
+		
 		return "saveUI";
 	}
 	@Override              
 	public Department getModel() {
 		return model;
+	}
+	public Long getParentId() {
+		return parentId;
+	}
+	public void setParentId(Long parentId) {
+		this.parentId = parentId;
 	}
 
 }

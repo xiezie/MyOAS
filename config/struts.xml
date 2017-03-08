@@ -20,7 +20,7 @@
         <action name="department_*" class="departmentAction" method="{1}">
         	<result name="list">/WEB-INF/jsp/department/list.jsp</result>
         	<result name="saveUI">/WEB-INF/jsp/department/saveUI.jsp</result>
-        	<result name="toList" type="redirectAction">department_list</result>
+        	<result name="toList" type="redirectAction">department_list?parentId=${parentId}</result><!-- 当xml使用OGNL取参数时,符号为$ -->
         </action>
 	</package>
 	

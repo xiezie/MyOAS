@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,10 +14,13 @@ import com.szunicom.myoas.service.DepartmentService;
 
 @Service
 @Transactional
+@SuppressWarnings("unchecked")
 public class DepartmentServiceImpl implements DepartmentService {
 
 	@Resource
 	private DepartmentDao dao;
+	@Resource
+	private SessionFactory factory;
 	
 	@Override
 	public List<Department> findAll() {
@@ -41,6 +45,18 @@ public class DepartmentServiceImpl implements DepartmentService {
 	@Override
 	public Department getById(Long id) {
 		return dao.getById(id);
+	}
+
+	@Override
+	public List<Department> findTopList() {
+		return factory.openSession().createQuery("FROM Department d WHERE d.parent IS NULL").list();
+	}
+
+	@Override
+	public List<Department> findChildren(Long parentId) {
+		return factory.openSession().createQuery("FROM Department d WHERE d.parent.id=?")//d.parent.id=?为面向对象的查询
+				.setParameter(0, parentId)//
+				.list();
 	}
 
 }
