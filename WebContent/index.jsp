@@ -8,7 +8,8 @@
 <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery/jquery-1.4.min.js"></script>
 </head>
 <body>
-	<a href="${pageContext.request.contextPath }/test.action">测试</a>
-	<a href="${pageContext.request.contextPath }/role_list.action">岗位管理</a>
+	<a href="${pageContext.request.contextPath }/test.action">测试</a><br/>
+	<a href="${pageContext.request.contextPath }/role_list.action">岗位管理</a><br/>
+	<a href="${pageContext.request.contextPath }/department_list.action">部门管理</a><br/>
 </body>
 </html>
