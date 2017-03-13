@@ -17,7 +17,7 @@
  |表单查询	|
 
 ## 框架
-Spring+Struts2+Hibernate+JBPM(业务流程管理:工作流支持)+Junit(单元测试)
+Spring + Struts2 + Hibernate + JBPM(业务流程管理:工作流支持) + Junit(单元测试)
 
 ## 环境
 内容|版本
