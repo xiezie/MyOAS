@@ -12,6 +12,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.szunicom.myoas.bean.Department;
 import com.szunicom.myoas.service.DepartmentService;
+import com.szunicom.myoas.utils.DepartmentUtils;
 
 @Component
 @Scope("prototype")
@@ -54,12 +55,14 @@ public class DepartmentAction extends ActionSupport implements ModelDriven<Depar
 		model.setId(null);
 		model.setName("");
 		model.setDescription("");
-		List<Department> departments = service.findAll();
+		List<Department> topList = service.findTopList();
+		List<Department> departments = DepartmentUtils.getAllDepartments(topList);
 		ActionContext.getContext().put("departments", departments);
 		return "saveUI";
 	}
 	public String editUI(){
-		List<Department> departments = service.findAll();
+		List<Department> topList = service.findTopList();
+		List<Department> departments = DepartmentUtils.getAllDepartments(topList);
 		ActionContext.getContext().put("departments", departments);
 		
 		Department d = service.getById(model.getId());
