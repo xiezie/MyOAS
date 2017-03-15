@@ -20,7 +20,6 @@ public class TestService {
 		Session currentSession = factory.getCurrentSession();
 		try {
 			currentSession.save(new User());
-			int i = 1/0;
 			currentSession.save(new User());
 		} catch (Exception e) {
 		}finally{

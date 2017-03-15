@@ -17,11 +17,13 @@
  |表单查询	|
 
 ## 框架
-Spring+Struts2+Hibernate+JBPM(业务流程管理:工作流支持)+Junit(单元测试)
+Spring + Struts2 + Hibernate + JBPM(业务流程管理:工作流支持) + Junit(单元测试)
 
 ## 环境
+内容|版本
+----|------
 Eclipse Java EE IDE|Kepler Service Release 2
-数据库|M0ySql 5.0.22
+数据库|MySql 5.0.22
 Web容器|Tomcat 6.0
 操作系统|Windows XP
 

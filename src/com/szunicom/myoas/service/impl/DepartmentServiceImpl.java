@@ -49,12 +49,12 @@ public class DepartmentServiceImpl implements DepartmentService {
 
 	@Override
 	public List<Department> findTopList() {
-		return factory.openSession().createQuery("FROM Department d WHERE d.parent IS NULL").list();
+		return factory.getCurrentSession().createQuery("FROM Department d WHERE d.parent IS NULL").list();
 	}
 
 	@Override
 	public List<Department> findChildren(Long parentId) {
-		return factory.openSession().createQuery("FROM Department d WHERE d.parent.id=?")//d.parent.id=?为面向对象的查询
+		return factory.getCurrentSession().createQuery("FROM Department d WHERE d.parent.id=?")//d.parent.id=?为面向对象的查询
 				.setParameter(0, parentId)//
 				.list();
 	}
