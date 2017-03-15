@@ -26,11 +26,11 @@ public class RoleAction extends BaseAction<Role>{
 	}
 	public String add(){
 
-		roleService.add(model);
+		roleService.save(model);
 		return "toList";
 	}
 	public String edit(){
-		roleService.edit(model);
+		roleService.update(model);
 		return "toList";
 	}
 	public String delete(){

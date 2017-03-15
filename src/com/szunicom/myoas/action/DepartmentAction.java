@@ -37,13 +37,13 @@ public class DepartmentAction extends BaseAction<Department>{
 	public String add(){
 		Department department = departmentService.getById(parentId);
 		model.setParent(department);
-		departmentService.add(model);
+		departmentService.save(model);
 		return "toList";
 	}
 	public String edit(){
 		Department department = departmentService.getById(parentId);
 		model.setParent(department);
-		departmentService.edit(model);
+		departmentService.update(model);
 		return "toList";
 	}
 	public String delete(){
