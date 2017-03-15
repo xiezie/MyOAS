@@ -2,70 +2,69 @@ package com.szunicom.myoas.action;
 
 import java.util.List;
 
-import javax.annotation.Resource;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.opensymphony.xwork2.ActionContext;
-import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.ModelDriven;
+import com.szunicom.myoas.base.BaseAction;
 import com.szunicom.myoas.bean.Department;
-import com.szunicom.myoas.service.DepartmentService;
 import com.szunicom.myoas.utils.DepartmentUtils;
 
 @Component
 @Scope("prototype")
-public class DepartmentAction extends ActionSupport implements ModelDriven<Department>{
+public class DepartmentAction extends BaseAction<Department>{
 
-	@Resource
-	private DepartmentService service;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private Long parentId;
-	private Department model = new Department();
 	
 	public String list(){
 		List<Department> departments = null;
 		if(parentId==null){
-			departments = service.findTopList();
+			departments = departmentService.findTopList();
 		}else{
-			departments = service.findChildren(parentId);
-			Department parent = service.getById(parentId);
+			departments = departmentService.findChildren(parentId);
+			Department parent = departmentService.getById(parentId);
 			ActionContext.getContext().put("parent", parent);
 		}
 		ActionContext.getContext().put("departments", departments);
 		return "list";
 	}
 	public String add(){
-		Department department = service.getById(parentId);
+		Department department = departmentService.getById(parentId);
 		model.setParent(department);
-		service.add(model);
+		departmentService.add(model);
 		return "toList";
 	}
 	public String edit(){
-		Department department = service.getById(parentId);
+		Department department = departmentService.getById(parentId);
 		model.setParent(department);
-		service.edit(model);
+		departmentService.edit(model);
 		return "toList";
 	}
 	public String delete(){
-		service.delete(model.getId());
+		departmentService.delete(model.getId());
 		return "toList";
 	}
 	public String addUI(){
 		model.setId(null);
 		model.setName("");
 		model.setDescription("");
-		List<Department> topList = service.findTopList();
+		List<Department> topList = departmentService.findTopList();
 		List<Department> departments = DepartmentUtils.getAllDepartments(topList);
 		ActionContext.getContext().put("departments", departments);
 		return "saveUI";
 	}
 	public String editUI(){
-		List<Department> topList = service.findTopList();
+		List<Department> topList = departmentService.findTopList();
 		List<Department> departments = DepartmentUtils.getAllDepartments(topList);
 		ActionContext.getContext().put("departments", departments);
 		
-		Department d = service.getById(model.getId());
+		Department d = departmentService.getById(model.getId());
 		if(d.getParent()!=null){
 			parentId = d.getParent().getId();
 		}
@@ -73,10 +72,6 @@ public class DepartmentAction extends ActionSupport implements ModelDriven<Depar
 		ActionContext.getContext().getValueStack().push(d);
 		
 		return "saveUI";
-	}
-	@Override              
-	public Department getModel() {
-		return model;
 	}
 	public Long getParentId() {
 		return parentId;

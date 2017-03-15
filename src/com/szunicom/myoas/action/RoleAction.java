@@ -2,42 +2,39 @@ package com.szunicom.myoas.action;
 
 import java.util.List;
 
-import javax.annotation.Resource;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.opensymphony.xwork2.ActionContext;
-import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.ModelDriven;
+import com.szunicom.myoas.base.BaseAction;
 import com.szunicom.myoas.bean.Role;
-import com.szunicom.myoas.service.RoleService;
 
 @Component
 @Scope("prototype")
-public class RoleAction extends ActionSupport implements ModelDriven<Role>{
+public class RoleAction extends BaseAction<Role>{
 
-	@Resource
-	private RoleService service;
-
-	private Role model = new Role();
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	public String list(){
-		List<Role> roles = service.findAll();
+		List<Role> roles = roleService.findAll();
 		ActionContext.getContext().put("roles", roles);
 		return "list";
 	}
 	public String add(){
 
-		service.add(model);
+		roleService.add(model);
 		return "toList";
 	}
 	public String edit(){
-		service.edit(model);
+		roleService.edit(model);
 		return "toList";
 	}
 	public String delete(){
-		service.delete(model.getId());
+		roleService.delete(model.getId());
 		return "toList";
 	}
 	public String addUI(){
@@ -47,13 +44,9 @@ public class RoleAction extends ActionSupport implements ModelDriven<Role>{
 		return "saveUI";
 	}
 	public String editUI(){
-		Role r = service.getById(model.getId());
+		Role r = roleService.getById(model.getId());
 		ActionContext.getContext().getValueStack().push(r);
 		return "saveUI";
-	}
-	@Override              
-	public Role getModel() {
-		return model;
 	}
 
 }
