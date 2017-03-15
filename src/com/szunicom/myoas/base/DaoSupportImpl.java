@@ -9,7 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 @SuppressWarnings("unchecked")
-public class DaoSupportImpl<T> implements BaseDao<T> {
+public abstract class DaoSupportImpl<T> implements DaoSupport<T> {
 
 	@Resource
 	private SessionFactory factory;
@@ -36,6 +36,7 @@ public class DaoSupportImpl<T> implements BaseDao<T> {
 	public void delete(Long id) {
 		Object object = getById(id);
 		if(object != null){
+			System.out.println("delete");
 			getSession().delete(object);
 		}
 	}

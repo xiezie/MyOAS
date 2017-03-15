@@ -2,6 +2,7 @@ package com.szunicom.myoas.base;
 
 import java.util.List;
 
+@Deprecated
 public interface BaseDao<T> {
 
 	void save(T t);

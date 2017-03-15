@@ -22,6 +22,11 @@
         	<result name="saveUI">/WEB-INF/jsp/department/saveUI.jsp</result>
         	<result name="toList" type="redirectAction">department_list?parentId=${parentId}</result><!-- 当xml使用OGNL取参数时,符号为$ -->
         </action>
+		<action name="user_*" class="userAction" method="{1}">
+        	<result name="list">/WEB-INF/jsp/user/list.jsp</result>
+        	<result name="saveUI">/WEB-INF/jsp/user/saveUI.jsp</result>
+        	<result name="toList" type="redirectAction">user_list</result><!-- 当xml使用OGNL取参数时,符号为$ -->
+        </action>        
 	</package>
 	
 </struts>

@@ -36,7 +36,7 @@
                     <tr><td width="100">上级部门</td>
                         <td>
                         <s:select class="SelectStyle" name="parentId"
-                        list="departments" listKey="id" listValue="name"
+                        list="#departments" listKey="id" listValue="name"
                         headerKey="" headerValue="==请选择部门=="
                         />
                         </td>

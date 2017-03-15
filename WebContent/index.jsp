@@ -11,5 +11,6 @@
 	<a href="${pageContext.request.contextPath }/test.action">测试</a><br/>
 	<a href="${pageContext.request.contextPath }/role_list.action">岗位管理</a><br/>
 	<a href="${pageContext.request.contextPath }/department_list.action">部门管理</a><br/>
+	<a href="${pageContext.request.contextPath }/user_list.action">用户管理</a><br/>
 </body>
 </html>

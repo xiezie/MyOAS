@@ -4,11 +4,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.szunicom.myoas.base.DaoSupportImpl;
-import com.szunicom.myoas.bean.Role;
-import com.szunicom.myoas.service.RoleService;
+import com.szunicom.myoas.bean.User;
+import com.szunicom.myoas.service.UserService;
 
 @Service
 @Transactional
-public class RoleServiceImpl extends DaoSupportImpl<Role> implements RoleService {
+public class UserServiceImpl extends DaoSupportImpl<User> implements UserService {
 
 }

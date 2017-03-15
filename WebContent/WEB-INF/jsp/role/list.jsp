@@ -31,14 +31,14 @@
 
 		<!--显示数据列表-->
         <tbody id="TableData" class="dataContainer" datakey="roles">
-        	<s:iterator value="roles">
+        	<s:iterator value="#roles">
         	
 			<tr class="TableDetail1 template">
 				<td>${name}&nbsp;</td>
 				<td>${description}&nbsp;</td>
 				<td>
-					<s:a action="role_editUI.action?id=%{id}" >更新</s:a>
-					<s:a action="role_delete.action?id=%{id}" onclick="return confirm('确定要删除吗?')">删除</s:a>,
+					<s:a action="role_editUI?id=%{id}" >更新</s:a>
+					<s:a action="role_delete?id=%{id}" onclick="return confirm('确定要删除吗?')">删除</s:a>,
 					<a href="setPrivilegeUI.html">设置权限</a>
 				</td>
 			</tr>
