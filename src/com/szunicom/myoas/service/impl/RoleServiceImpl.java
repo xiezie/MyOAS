@@ -8,7 +8,6 @@ import com.szunicom.myoas.bean.Role;
 import com.szunicom.myoas.service.RoleService;
 
 @Service
-@Transactional
 public class RoleServiceImpl extends DaoSupportImpl<Role> implements RoleService {
 
 }

@@ -8,7 +8,6 @@ import com.szunicom.myoas.bean.User;
 import com.szunicom.myoas.service.UserService;
 
 @Service
-@Transactional
 public class UserServiceImpl extends DaoSupportImpl<User> implements UserService {
 
 }

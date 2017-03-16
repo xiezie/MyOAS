@@ -13,7 +13,6 @@ import com.szunicom.myoas.bean.Department;
 import com.szunicom.myoas.service.DepartmentService;
 
 @Service
-@Transactional
 @SuppressWarnings("unchecked")
 public class DepartmentServiceImpl extends DaoSupportImpl<Department> implements DepartmentService {
 
