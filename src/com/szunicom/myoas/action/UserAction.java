@@ -3,6 +3,7 @@ package com.szunicom.myoas.action;
 import java.util.HashSet;
 import java.util.List;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -44,7 +45,8 @@ public class UserAction extends BaseAction<User>{
 	public String add(){
 		model.setDepartment(departmentService.getById(departmentId));
 		model.setRoles(new HashSet<>(roleService.getByIds(roleIds)));
-		model.setPassword("1234");
+		String passwordDigest = DigestUtils.md2Hex("1234");
+		model.setPassword(passwordDigest);
 		userService.save(model);
 		return "toList";
 	}
@@ -93,7 +95,8 @@ public class UserAction extends BaseAction<User>{
 	}
 	
 	public String deletePassword(){
-		model.setPassword("1234");
+		String passwordDigest = DigestUtils.md2Hex("1234");
+		model.setPassword(passwordDigest);
 		model.setDepartment(departmentService.getById(departmentId));
 		model.setRoles(new HashSet<>(roleService.getByIds(roleIds)));
 		userService.update(model);
