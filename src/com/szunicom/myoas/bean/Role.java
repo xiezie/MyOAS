@@ -8,6 +8,7 @@ public class Role {
 	private String name;
 	private String description;
 	private Set<User> users;
+	private Set<Privilege> privileges;
 	
 	public Long getId() {
 		return id;
@@ -32,6 +33,12 @@ public class Role {
 	}
 	public void setUsers(Set<User> users) {
 		this.users = users;
+	}
+	public Set<Privilege> getPrivileges() {
+		return privileges;
+	}
+	public void setPrivileges(Set<Privilege> privileges) {
+		this.privileges = privileges;
 	}
 	
 }
