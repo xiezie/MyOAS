@@ -23,7 +23,8 @@
         <many-to-one name="parent" class="Department" column="parentId"></many-to-one>
         
         <!--   children属性 Department类与Department（下级）的一对多的关系 -->
-        <set name="children" cascade="delete"><!-- cascade设为delete:关联删除  lazy设为false:取消懒加载(懒加载为当数据库查询存在其他对象且被View使用,采取懒加载的方式:节省资源,提高效率)-->
+        <set name="children" cascade="delete" order-by="id ASC">
+        	<!-- cascade设为delete:关联删除  lazy设为false:取消懒加载(懒加载为当数据库查询存在其他对象且被View使用,采取懒加载的方式:节省资源,提高效率)-->
         	<key column="parentId"></key>
         	<one-to-many  class="Department"/>
         </set>
