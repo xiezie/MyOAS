@@ -95,11 +95,10 @@ public class UserAction extends BaseAction<User>{
 	}
 	
 	public String deletePassword(){
+		User user = userService.getById(model.getId());
 		String passwordDigest = DigestUtils.md2Hex("1234");
-		model.setPassword(passwordDigest);
-		model.setDepartment(departmentService.getById(departmentId));
-		model.setRoles(new HashSet<>(roleService.getByIds(roleIds)));
-		userService.update(model);
+		user.setPassword(passwordDigest);
+		userService.update(user);
 		return "toList";
 	}
 
