@@ -1,15 +1,16 @@
 package com.szunicom.myoas.bean;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class Privilege {
 
-	private Set<Role> roles;
 	private String name;
 	private Long id;
 	private String url;
+	private Set<Role> roles = new HashSet<>();
 	private Privilege parent;
-	private Set<Privilege> children;
+	private Set<Privilege> children = new HashSet<>();
 	public Set<Role> getRoles() {
 		return roles;
 	}

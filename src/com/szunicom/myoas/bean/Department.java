@@ -1,5 +1,6 @@
 package com.szunicom.myoas.bean;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class Department {
@@ -7,9 +8,9 @@ public class Department {
 	private Long id;
 	private String name;
 	private String description;
-	private Set<User> users;
+	private Set<User> users = new HashSet<>();
 	private Department parent;
-	private Set<Department> children;
+	private Set<Department> children = new HashSet<>();
 
 	public Set<User> getUsers() {
 		return users;

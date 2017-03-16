@@ -1,5 +1,6 @@
 package com.szunicom.myoas.bean;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class User {
@@ -13,7 +14,7 @@ public class User {
 	private String email;
 	private String description;
 	private Department department;
-	private Set<Role> roles;
+	private Set<Role> roles = new HashSet<>();
 	public String getGender() {
 		return gender;
 	}
