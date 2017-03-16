@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 public abstract class DaoSupportImpl<T> implements DaoSupport<T> {
 
 	@Resource
-	private SessionFactory factory;
+	protected SessionFactory factory;
 	
 	private Class<T> clazz;
 	

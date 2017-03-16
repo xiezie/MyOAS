@@ -15,9 +15,6 @@ import com.szunicom.myoas.service.DepartmentService;
 @SuppressWarnings("unchecked")
 public class DepartmentServiceImpl extends DaoSupportImpl<Department> implements DepartmentService {
 
-	@Resource
-	private SessionFactory factory;
-
 	@Override
 	public List<Department> findTopList() {
 		return factory.getCurrentSession().createQuery("FROM Department d WHERE d.parent IS NULL").list();

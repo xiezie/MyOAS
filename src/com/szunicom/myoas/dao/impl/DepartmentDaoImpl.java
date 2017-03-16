@@ -7,7 +7,7 @@ import com.szunicom.myoas.bean.Department;
 import com.szunicom.myoas.dao.DepartmentDao;
 
 @SuppressWarnings("deprecation")
-@Repository
+//@Repository
 public class DepartmentDaoImpl extends BaseDaoImpl<Department> implements DepartmentDao{
 
 }

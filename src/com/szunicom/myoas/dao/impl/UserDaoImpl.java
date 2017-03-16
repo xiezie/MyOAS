@@ -7,6 +7,6 @@ import com.szunicom.myoas.bean.User;
 import com.szunicom.myoas.dao.UserDao;
 
 @SuppressWarnings("deprecation")
-@Repository
+//@Repository
 public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao{
 }

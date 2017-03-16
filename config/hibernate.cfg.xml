@@ -22,5 +22,6 @@
         <mapping resource="com/szunicom/myoas/bean/User.hbm.xml"/>
         <mapping resource="com/szunicom/myoas/bean/Role.hbm.xml"/>
         <mapping resource="com/szunicom/myoas/bean/Department.hbm.xml"/>
+        <mapping resource="com/szunicom/myoas/bean/Privilege.hbm.xml"/>
 	</session-factory>
 </hibernate-configuration>

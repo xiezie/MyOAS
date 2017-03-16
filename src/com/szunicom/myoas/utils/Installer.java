@@ -87,7 +87,7 @@ public class Installer {
 	}
 
 	public static void main(String[] args) {
-		ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
+		ApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");
 		Installer installer = (Installer) ac.getBean("installer");
 		installer.install();
 	}

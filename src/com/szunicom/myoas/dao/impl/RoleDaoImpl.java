@@ -7,7 +7,7 @@ import com.szunicom.myoas.bean.Role;
 import com.szunicom.myoas.dao.RoleDao;
 
 @SuppressWarnings("deprecation")
-@Repository
+//@Repository
 public class RoleDaoImpl extends BaseDaoImpl<Role> implements RoleDao{
 
 }
