@@ -15,6 +15,7 @@
         <action name="role_*" class="roleAction" method="{1}">
         	<result name="list">/WEB-INF/jsp/role/list.jsp</result>
         	<result name="saveUI">/WEB-INF/jsp/role/saveUI.jsp</result>
+        	<result name="editPrivilegeUI">/WEB-INF/jsp/role/editPrivilegeUI.jsp</result>
         	<result name="toList" type="redirectAction">role_list</result>
         </action>
         <action name="department_*" class="departmentAction" method="{1}">

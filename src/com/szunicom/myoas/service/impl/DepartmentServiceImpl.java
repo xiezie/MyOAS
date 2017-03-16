@@ -2,9 +2,6 @@ package com.szunicom.myoas.service.impl;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
-import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Service;
 
 import com.szunicom.myoas.base.DaoSupportImpl;

@@ -17,6 +17,8 @@ public class Privilege {
 		this.url = url;
 		this.parent = parent;
 	}
+	public Privilege() {
+	}
 	public Set<Role> getRoles() {
 		return roles;
 	}

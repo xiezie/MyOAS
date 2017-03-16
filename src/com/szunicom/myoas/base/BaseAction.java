@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.szunicom.myoas.service.DepartmentService;
+import com.szunicom.myoas.service.PrivilegeService;
 import com.szunicom.myoas.service.RoleService;
 import com.szunicom.myoas.service.UserService;
 
@@ -42,5 +43,7 @@ public abstract class BaseAction<T> extends ActionSupport implements ModelDriven
 	protected RoleService roleService;
 	@Resource
 	protected UserService userService;
+	@Resource
+	protected PrivilegeService privilegeService;
 	
 }
