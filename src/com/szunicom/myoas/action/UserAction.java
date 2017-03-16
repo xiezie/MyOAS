@@ -24,6 +24,18 @@ public class UserAction extends BaseAction<User>{
 	private Long departmentId;
 	private Long[] roleIds;
 	
+	public Long getDepartmentId() {
+		return departmentId;
+	}
+	public void setDepartmentId(Long departmentId) {
+		this.departmentId = departmentId;
+	}
+	public Long[] getRoleIds() {
+		return roleIds;
+	}
+	public void setRoleIds(Long[] roleIds) {
+		this.roleIds = roleIds;
+	}
 	public String list(){
 		List<User> users = userService.findAll();
 		ActionContext.getContext().put("users", users);

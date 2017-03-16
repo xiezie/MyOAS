@@ -33,7 +33,7 @@
                 <table cellpadding="0" cellspacing="0" class="mainForm">
                     <tr><td width="100">所属部门</td>
                         <td>
-                        <s:select class="SelectStyle" name="departmentId"
+                        <s:select cssClass="SelectStyle" name="departmentId"
                         list="#departments" listKey="id" listValue="name"
                         headerKey="" headerValue="==请选择部门=="
                         />
@@ -50,12 +50,12 @@
                         </td>
                     </tr>
                     <tr><td>登录名</td>
-                        <td><s:textfield type="text" name="loginName" class="InputStyle"/> *
+                        <td><s:textfield type="text" name="username" class="InputStyle"/> *
 							（登录名要唯一）
 						</td>
                     </tr>
                     <tr><td>姓名</td>
-                        <td><s:textfield type="text" name="name" class="InputStyle"/> *</td>
+                        <td><s:textfield type="text" name="nickname" class="InputStyle"/> *</td>
                     </tr>
 					<tr><td>性别</td>
                         <td>
@@ -95,7 +95,7 @@
                                 <option value="4">总经理</option>
                                 <option value="5">测试员</option>
                             </select> --%>
-                            <s:select class="SelectStyle" name="roleId" multiple="true"
+                            <s:select cssClass="SelectStyle" name="roleIds" multiple="true"
                         list="#roles" listKey="id" listValue="name"
                         />
                             按住Ctrl键可以多选或取消选择

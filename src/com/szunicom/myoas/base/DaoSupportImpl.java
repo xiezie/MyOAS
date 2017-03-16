@@ -1,6 +1,7 @@
 package com.szunicom.myoas.base;
 
 import java.lang.reflect.ParameterizedType;
+import java.util.Collections;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -59,8 +60,11 @@ public abstract class DaoSupportImpl<T> implements DaoSupport<T> {
 
 	@Override
 	public List<T> getByIds(Long[] ids) {
+		if(ids==null||ids.length==0){
+			return Collections.EMPTY_LIST;
+		}
 		return getSession()//
-				.createQuery("from " + clazz.getSimpleName() + " where id = (:ids)")//
+				.createQuery("FROM " + clazz.getSimpleName() + " WHERE id IN (:ids)")//
 				.setParameterList("ids", ids)//
 				.list();
 	}
@@ -68,7 +72,7 @@ public abstract class DaoSupportImpl<T> implements DaoSupport<T> {
 	@Override
 	public List<T> findAll() {
 		return getSession()//
-				.createQuery("from " + clazz.getSimpleName())//
+				.createQuery("FROM " + clazz.getSimpleName())//
 				.list();
 	}
 

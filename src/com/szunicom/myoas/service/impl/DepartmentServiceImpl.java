@@ -6,7 +6,6 @@ import javax.annotation.Resource;
 
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.szunicom.myoas.base.DaoSupportImpl;
 import com.szunicom.myoas.bean.Department;
